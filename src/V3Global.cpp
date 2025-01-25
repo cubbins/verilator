@@ -79,6 +79,98 @@ void V3Global::readFiles() {
                          "Cannot find verilated_std.sv containing built-in std:: definitions: ");
     }
 
+
+    // Read top module
+    //cubbins
+
+///home/cubbins/black-parrot-sim/black-parrot/bp_top/syn/results/verilator/bp_tethered.e_bp_default_cfg.none.sim.bp-tests.hello_world
+
+
+/* 
+unset VERILATOR_ROOT
+
+cd /home/cubbins/black-parrot-sim#
+make -B -C black-parrot/bp_top/syn tire_kick
+
+unset VERILATOR_ROOT
+cd /home/cubbins/verilator
+
+unset VERILATOR_ROOT
+cd /home/cubbins/verilator/src
+code . &
+
+unset VERILATOR_ROOT
+cd /home/cubbins/black-parrot-sim/black-parrot/bp_top/test/tb/bp_tethered/
+code . &
+
+unset VERILATOR_ROOT
+cd /home/cubbins/black-parrot-sim/black-parrot
+code . &
+
+
+
+*/
+    PRINT_FILE_LINE();
+    printf("\nvconst V3StringList& vFiles = v3Global.opt.vFiles();\n");
+    printf("\nparser.parseFile\n");
+    printf("\nthe file V3Global.cpp, line 89\n");
+    printf("\n**************\n");
+    std::ofstream outputFile("/home/cubbins/black-parrot-sim/black-parrot/bp_top/test/tb/bp_tethered/Cubbinsfilenames.txt");
+    //reset the recording file for decode
+    std::ofstream outputFile22("/home/cubbins/black-parrot-sim/black-parrot/bp_top/test/tb/bp_tethered/out_bp_be_instr_decode.txt");
+    outputFile22.close();
+
+
+
+    printf("cubbins on 1/25/2025\n");
+
+    const V3StringList& vFiles = v3Global.opt.vFiles();
+    for (const string& filename : vFiles) {
+
+        //printf("%s\n",filename);
+
+
+
+        printf("%s\n", filename.c_str());
+
+
+
+        // Save the filename to the file 
+
+
+        outputFile << filename << std::endl;
+
+        parser.parseFile(new FileLine{FileLine::commandLineFilename()}, filename, false,
+                         "Cannot find file containing module: ");
+    }
+
+//TomCubbins *****in testbench.v***** within this file
+//bp_top/test/tb/bp_tethered/testbench.sv: 
+///home/cubbins/black-parrot-sim/black-parrot/bp_top/test/tb/bp_tethered/testbench.sv
+
+    printf("\n**************\n");
+    
+const string& filename11 ="/home/cubbins/black-parrot-sim/black-parrot/bp_top/test/tb/bp_tethered/testbench.sv";
+//const string& filename22 ="/home/cubbins/black-parrot-sim/black-parrot/bp_top/syn/my_wormhole_module.sv";
+const string& filename22 ="/home/cubbins/black-parrot-sim/black-parrot/bp_top/test/tb/bp_tethered/my_wormhole_module.sv";
+
+    printf("%s\n", filename11.c_str());
+    printf("%s\n", filename22.c_str());
+
+    parser.parseFile(new FileLine{FileLine::commandLineFilename()}, filename22, false,
+                         "Cannot find file containing module: ");
+    printf("\n**************\n");
+
+
+    // Close the file
+    outputFile.close();
+
+
+
+
+
+    
+
     // Read top module
     const V3StringList& vFiles = v3Global.opt.vFiles();
     for (const string& filename : vFiles) {
