@@ -12,7 +12,6 @@
 // Version 2.0.
 // SPDX-License-Identifier: LGPL-3.0-only OR Artistic-2.0
 //
-// cubbins add some code
 //*************************************************************************
 
 #include "V3PchAstMT.h"
@@ -31,6 +30,8 @@
 
 VL_DEFINE_DEBUG_FUNCTIONS;
 
+#define PRINT_FILE_LINE() std::cout << "File: " << __FILE__ << ", Line: " << __LINE__ << std::endl;
+#include <fstream>
 //######################################################################
 // V3Global
 
@@ -79,7 +80,6 @@ void V3Global::readFiles() {
                          "Cannot find verilated_std.sv containing built-in std:: definitions: ");
     }
 
-
     // Read top module
     //cubbins
 
@@ -107,7 +107,15 @@ unset VERILATOR_ROOT
 cd /home/cubbins/black-parrot-sim/black-parrot
 code . &
 
+unset VERILATOR_ROOT
+cd /home/cubbins/black-parrot-sim/black-parrot/bp_top/test/
+code . &
 
+unset VERILATOR_ROOT
+cd /home/cubbins/black-parrot-sim/black-parrot/bp_top/syn/results/verilator/bp_tethered.e_bp_default_cfg.none.sim.bp-tests.hello_world
+code . &
+
+/home/cubbins/opam
 
 */
     PRINT_FILE_LINE();
@@ -166,17 +174,6 @@ const string& filename22 ="/home/cubbins/black-parrot-sim/black-parrot/bp_top/te
     outputFile.close();
 
 
-
-
-
-    
-
-    // Read top module
-    const V3StringList& vFiles = v3Global.opt.vFiles();
-    for (const string& filename : vFiles) {
-        parser.parseFile(new FileLine{FileLine::commandLineFilename()}, filename, false,
-                         "Cannot find file containing module: ");
-    }
 
     // Read libraries
     // To be compatible with other simulators,
