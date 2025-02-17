@@ -1,3 +1,12 @@
+
+Notes:
+global edited 2/17/2025
+===================
+
+
+
+
+
 .. Github doesn't render images unless absolute URL
 .. Do not know of a conditional tag, "only: github" nor "github display" works
 
