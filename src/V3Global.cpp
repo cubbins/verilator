@@ -115,7 +115,51 @@ unset VERILATOR_ROOT
 cd /home/cubbins/black-parrot-sim/black-parrot/bp_top/syn/results/verilator/bp_tethered.e_bp_default_cfg.none.sim.bp-tests.hello_world
 code . &
 
-/home/cubbins/opam
+====================
+//put other software links here
+
+cd /home/cubbins/opam
+here is the result but it doesn't complete, but does
+create a result in : out.sv
+(base) root@AIPC:/home/cubbins/opam# sail -sv small.sail
+initialize_registers
+  return = () unknown location
+  end return unknown location
+  return = () unknown location
+  end return unknown location
+return -> return/1
+=====================
+(base) root@AIPC:/home/cubbins/mytorchNN# ls
+myNN.py  transF.py  try1.py  try2.py  worksTry2.py
+(base) root@AIPC:/home/cubbins/mytorchNN# python myNN.py
+SimpleCNN(
+  (conv1): Conv2d(1, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (conv2): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (fc1): Linear(in_features=6272, out_features=1024, bias=True)
+  (fc2): Linear(in_features=1024, out_features=10, bias=True)
+======================
+(base) root@AIPC:/home/cubbins/sail-riscv# c_emulator/riscv_rvfi_RV64
+======================
+(base) root@AIPC:/home/cubbins/rosetta/main# ls -1
+CITING_ROSETTA.md
+CLA.md
+CONTRIBUTING.md
+LICENSE.md
+PyRosetta.notebooks
+README.md
+database
+demos
+documentation
+pyrosetta_scripts
+rosetta_scripts_scripts
+source
+tests
+tools
+
+
+
+=======================
+
 
 */
     PRINT_FILE_LINE();
@@ -164,6 +208,10 @@ const string& filename22 ="/home/cubbins/black-parrot-sim/black-parrot/bp_top/te
 
     printf("%s\n", filename11.c_str());
     printf("%s\n", filename22.c_str());
+
+    //this is the point where a new file is added to the list
+    //of files that will be parsed and treated, that are not in flist.vcs
+    //the standard file list for black-parrot
 
     parser.parseFile(new FileLine{FileLine::commandLineFilename()}, filename22, false,
                          "Cannot find file containing module: ");
